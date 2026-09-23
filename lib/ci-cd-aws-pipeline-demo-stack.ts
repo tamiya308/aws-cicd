@@ -20,7 +20,7 @@ export class CiCdAwsPipelineDemoStack extends cdk.Stack {
       
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.connection('tamiya308/aws-cicd', 'main', {
-          connectionArn: 'arn:aws:codeconnections:ap-southeast-2:610433738771:connection/be5819ac-2f77-40d4-ab22-993d756a5c21',
+          connectionArn: 'arn:aws:codeconnections:ap-southeast-2:610433738771:connection/4b49195a-16e2-491f-99b7-49b91bb4bfa7',
         }),
         commands: ['npm ci', 
                    'npm run build', 
@@ -28,7 +28,7 @@ export class CiCdAwsPipelineDemoStack extends cdk.Stack {
       })
     });
 
-    
+
     const devStage = pipeline.addStage(new MyPipelineAppStage(this, "dev", {
       env: { account: "610433738771", region: "ap-southeast-2" }
     }));
